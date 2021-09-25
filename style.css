@@ -31,3 +31,11 @@ body {
 .list-style{
     list-style-type: none;
 }
+
+.hint{
+    background-color: yellow;
+}
+
+.active{
+    background-color: green;
+}
