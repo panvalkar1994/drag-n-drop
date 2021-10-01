@@ -40,7 +40,27 @@ breakfastItems.forEach(item=>{
 
     item.addEventListener('drop', e=>{
         e.preventDefault();
-        item.parentNode.insertBefore(dragged, item.nextSibling);
+        let dropLocation = -1;
+        let draggedFrom = -1;
+        let breakfastItemsNew = document.querySelectorAll('.draggable');
+
+        for (let index = 0; index < breakfastItemsNew.length; index++) {
+            const element = breakfastItemsNew[index];
+            if(item==element){
+                dropLocation = index;
+
+            }
+            if(element==dragged){
+                draggedFrom = index;
+            }
+            
+        }
+
+        if(dropLocation<draggedFrom){
+            item.parentNode.insertBefore(dragged, item.previousSibling);
+        }else{
+            item.parentNode.insertBefore(dragged, item.nextSibling);
+        }
     })
 
 })  
